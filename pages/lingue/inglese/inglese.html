@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="body">
+    
+    <header class="header1">
+      
+        <a href="../../../index.html" class="logo">SAN ZANOBI HOLIDAY HOME</a>
+        <input class="menu-btn" id="menu-btn" type="checkbox">
+        <label for="menu-btn" class="menu-icon" onclick="change()">
+            <span class="nav-icon"></span>
+        </label>
+        <ul class="menu">
+          <li><a href="../../galleria.html" class="nav-link">Gallery</a></li>
+          <li><a href="../../servizi.html" class="nav-link">Services</a></li>
+          <li><a href="../../pages/doveSiamo.html" class="nav-link">Location</a></li>
+          <li><a href="../../contatti.php" class="nav-link">Contact</a></li>
+          <li><a href="../../diconoDiNoi.html" class="nav-link">Testimonials</a></li>
+        
+          <!-- Language switcher -->
+          <li class="nav-item-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Language
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="../../../index.html"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italy" style="width: 24px;"> Italiano</a></li>
+                <li><a class="dropdown-item" href="./inglese.html"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;"> English</a></li>
+                <li><a class="dropdown-item" href="./pages/lingue/francese/francese.html"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
+                    Français</a></li>
+                <li><a class="dropdown-item" href="index-es.html"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;"> Español</a></li>
+            </ul>
+          </li>
+        </ul>
+    </header>
+
+  <div class="main">
+    <div class="container1 ">
+      <div class="box boxLogo text-center">
+        <p>
+          <h1 class="titolo">SAN ZANOBI</h1>
+          <h3 class="titolo">HOLIDAY HOME</h3>
+        </p>
+        <img class="logo1" src="../../../img/logo3.png" alt="">
+      </div>
+
+      <div class="box">
+        <div style="border:solid black 2px" id="carouselExampleIndicators" class="carousel slide rounded">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../../../img/IMG-20241004-WA0042.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../img/IMG-20241004-WA0043.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../../../img/IMG-20241004-WA0044.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="box">
+        <p class="descrizione">Our apartment, located in the heart of Florence, is just steps from Piazza San Marco, a 10-minute walk from the Santa Maria Novella station, and close to the city's main attractions, all within walking distance.<br>We accommodate up to 4 people, featuring a large double bedroom and a comfortable sofa bed in the living room.<br>Feel free to contact us for more information and to check availability.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <h2 style="text-align: center; align-items: center; margin-bottom:20px;">Our Location</h2>
+    <div class="content">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.6655261863266!2d11.253056276684779!3d43.7798014442327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a541c51214b9f%3A0xf9922c4c9ea2c00a!2sVia%20S.%20Zanobi%2C%2049%2C%2050129%20Firenze%20FI!5e0!3m2!1sit!2sit!4v1730666486966!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start footer">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col">
+          <a href="https://www.instagram.com/sanzanobi_holiday/" target="_blank" class="text-decoration-none">
+            <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+            <p>Instagram</p>
+          </a>
+        </div>
+        <div class="col">
+          <a href="tel:+1234567890" class="text-decoration-none">
+            <i class="bi bi-telephone-fill" style="font-size: 1.5rem;"></i>
+            <p>+393280576886</p>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.airbnb.it/rooms/12360247/amenities?source_impression_id=p3_1728847931_P35IxTYupJ1CoKu9&translate_ugc=false" target="_blank" class="text-decoration-none">
+            <i class="bi bi-house-door-fill" style="font-size: 1.5rem;"></i>
+            <p>Airbnb</p>
+          </a>
+        </div>
+        <div class="col">
+          <a href="mailto:rossanapalumbo2@gmail.com" class="text-decoration-none">
+            <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
+            <p>San Zanobi Holiday Home</p>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://wa.me/+393280576886" target="_blank" class="text-decoration-none">
+            <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
+            <p>WhatsApp</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script src="../../../script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

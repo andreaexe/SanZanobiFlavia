@@ -1,0 +1,90 @@
+
+
+#carouselExample{
+
+    width:60%;
+    height:200px;
+    margin-bottom:-100px;
+    
+}
+
+
+.main .containerCard{
+
+    top:100px;
+    position:relative;
+    display: flex;
+    justify-content:center;
+}
+
+.main .containerCard .card{
+
+    width:100%;
+}
+
+.containerCard .card img{
+
+    object-fit: contain;
+    width: 100%;
+}
+
+
+
+
+
+.star {
+    font-size: 24px;
+    color: gold;
+}
+
+.rating-display {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.reviews-count {
+    font-size: 16px;
+    margin-left: 5px;
+    color: grey;
+}
+
+.rating-bar .rating-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.rating-bar .bar {
+    width: 100px;
+    height: 10px;
+    background-color: #e0e0e0;
+    margin-left: 10px;
+    position: relative;
+}
+
+.rating-bar .filled {
+    height: 100%;
+    background-color: black;
+}
+
+.rating {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+i {
+    font-size: 24px;
+    margin-top: 5px;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+  
+
+
+
+
+

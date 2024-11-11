@@ -1,0 +1,36 @@
+
+.container4 {
+    position:relative;
+    top:75px;
+    text-align:left;
+    margin-left:50px;
+    
+}
+
+.container4 h1{
+    
+    padding-top:40px;
+}
+
+.box4 h3{
+
+    padding-top:20px;
+    padding-bottom: 20px;
+
+}
+
+hr{
+    
+    border-width:1px;
+    color:black;
+    background-color:black
+}
+
+.didascalia{
+    font-size: 14px;          /* Dimensione testo più piccola */
+    color: #666;              /* Colore grigio per non distrarre troppo */
+    margin-top: 3px;          /* Spazio sopra la didascalia */
+    margin-bottom: 10px;      /* Spazio sotto la didascalia */
+    display: block;
+    margin-left:34px;
+}

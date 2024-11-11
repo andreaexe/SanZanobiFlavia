@@ -1,0 +1,590 @@
+.body{
+    z-index: -50;
+    
+    background-color:#ffffff;
+    height: 100vh;
+}
+
+.header1 a{
+    color:black;
+}
+
+.header1 {
+    background-color:#f5ddb7;
+    box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.4);
+    position:fixed;
+    width:100%;
+    z-index: 10;
+}
+
+.header1 ul{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    align-items: center;
+    overflow:hidden;
+    background-color: #f5ddb7;
+}
+
+.header1 ul a{
+    display:block;
+    padding:20px;
+    text-decoration: none;
+    font-weight: 500;   
+}
+
+
+.header1 .logo{
+    font-weight: 700;
+    float:left;
+    font-size: 25px;
+    padding:20px 20px;
+    color:black;
+    text-decoration: none;
+}
+
+.header1 .menu{
+    clear:both;
+    max-height:0;
+    transition:max-height .2s ease-out;
+    overflow: hidden;
+}
+
+
+.header1 .menu-icon{
+    padding:40px 20px;
+    position:relative;
+    float:right;
+    cursor:pointer;
+}
+
+.header1 .menu-icon .nav-icon{
+    background-color: black;
+    display:block;
+    width:18px;
+    height:2px;
+    position:relative;
+    transition:background-color .2s ease-out;
+}
+
+
+
+.header1 .menu-icon .nav-icon::before,
+.header1 .menu-icon .nav-icon::after{
+     background-color: black;
+    content:"";
+    display:block;
+    height:100%;
+    width:100%;
+    transition:all .2s ease-out;
+    position:absolute;  
+}
+
+.header1 .menu-icon .nav-icon::before{
+    top:5px;
+}
+
+.header1 .menu-icon .nav-icon::after{
+    top:-5px;
+}
+
+.header1 .menu-btn{
+    display:none;
+}
+
+.header1 .menu-btn:checked~.menu{
+    max-height:400px;  
+}
+
+.header1 .menu-btn:checked ~ .menu-icon .nav-icon{
+    background-color:transparent;
+}
+
+.header1 .menu-btn:checked ~ .menu-icon .nav-icon:before{
+    transform:rotate(-45deg);
+    top:0;
+}
+
+.header1 .menu-btn:checked ~ .menu-icon .nav-icon:after{
+    transform:rotate(45deg);
+    top:0;
+}
+
+/*media query dell header*/
+
+@media (min-width:1064px){
+
+    .header1 li{
+        float:left;
+    }
+
+    .header1 li a {
+        padding:30px 20px;
+    }
+
+    .header1 .menu{
+        clear:none;
+        float:right;
+        max-height:0;   
+    }
+
+    .header1 .menu-icon{
+      display: none;
+    }
+
+    .header1 ul a:hover{
+        background-color:#7a491e ;
+        color:#f5ddb7;
+        transform: scale(1.2);
+    }
+}
+
+.container1 {
+    position: relative;
+    top: 200px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;  
+    width:100%;
+    
+}
+
+#carouselExampleIndicators {
+    margin:auto;
+    width: 100%;  
+     max-width: 80%;
+     
+}
+
+.box{
+    width:100%;
+}
+
+
+.logo1 {
+    width: 100%; /* Rende l'immagine responsive */
+    /*max-width: 300px; /* Imposta una larghezza massima */
+    margin-left: 20px; /* Rimuove i margini */
+}
+
+.titolo {
+   
+    margin-left:30px;
+}
+
+
+
+
+
+.main .container1 .box .descrizione{
+
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    font-size:20px;
+    margin-right:20px;
+    color: black;
+    
+    
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    /*display: flex;
+    flex-direction: column;*/
+    min-height: 50vh;  /* Il contenitore occupa tutta l'altezza della finestra */
+    margin-top:300px;
+    margin-bottom:200px;
+}
+
+.content {
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height:500px;
+}
+
+.wrapper .content iframe{
+
+    width:40%;
+}
+/*.wrapper .content iframe{
+
+    margin-top:50px;
+    width:50%;
+    height:700px;
+}*/
+
+    .footer {
+        /* Il footer si posiziona in fondo ma non si sovrappone al contenuto */
+        background-color: #f5ddb7;
+        color: black;
+        height:100px;
+        /* Aumenta il padding per dare più spazio agli elementi */
+        height: auto; /* Usa altezza automatica per adattarsi al contenuto */
+        overflow: hidden; /* Nasconde eventuali bordi tagliati */
+    }
+    
+    .footer .col a{
+    
+        color:black;
+    }
+    
+    
+    .footer .col a {
+        display: inline-block; /* Rende l'area di clic solo intorno all'icona e al testo */
+        padding: 20px 20px;
+        transition: background-color 0.1s ease, transform 0.1s ease; /* Transizione per colore e dimensioni */
+      /* Arrotonda gli angoli dell'elemento */
+    }
+    
+    /* Effetto di clic solo su icona e testo */
+    .footer .col a:hover {
+        background-color: #7a491e; /* Cambia colore di sfondo su clic */
+        color: #f5ddb7; /* Cambia il colore del testo e delle icone su clic */
+        transform: scale(1.2); /* Ingrandisce leggermente l'icona e il testo */
+    }
+    
+    /* Cambia il colore del testo e dell'icona su clic */
+    .footer .col a:hover i,
+    .footer .col a:hover p {
+        color: #f5ddb7; /* Cambia colore di testo e icona */
+    }
+    
+
+
+
+/* Ingrandisce le icone delle frecce */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 50px;          /* Larghezza personalizzata */
+    height: 50px;         /* Altezza personalizzata */
+    background-size: 100%; /* Assicura che l'icona occupi tutto lo spazio */
+    transform: scale(1.5); /* Scala le frecce al 150% */
+    z-index:0;
+}
+
+/* Se hai bisogno di ulteriore personalizzazione per il colore */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);    /* Colore bianco */
+    z-index:0;
+}
+
+
+/* Aggiungi un effetto di hover anche sui testi */
+
+@media (min-width: 768px) and (max-width: 1400px) {
+    .container1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* Due colonne per il logo e il testo */
+        top: 120px;
+        justify-items: center;  /* Centra gli elementi orizzontalmente nella griglia */
+        align-items: center;
+        
+        
+    }
+
+    .box:nth-child(1) {
+        grid-column: 1 / 2;  /* Prima colonna per il logo e il testo */
+    }
+
+    .box:nth-child(2) {
+        grid-column: 1 / 3;  /* Estende il carosello su tutte le colonne disponibili */
+        grid-row: 2;/* Posiziona il carosello sulla seconda riga */
+        width: 100%;   /* Assicura che il carosello occupi tutta la larghezza */
+        height: 100%;  /* Occupa tutta l'altezza disponibile */
+    }
+
+    .box:nth-child(3) {
+        grid-column: 2 / 3;  /* Seconda colonna */  
+    }
+
+    .header1 ul a:hover {
+        background-color: #7a491e;
+        color: #f5ddb7;
+    }
+
+    #carouselExampleIndicators {
+        /*Fallback for very small screens */
+        max-width: 60%;  /* Default max width for larger screens */
+        min-width:600px;
+        margin-top: 100px;
+    }
+
+    .wrapper .divLocation img{
+        width:60%;
+    }
+
+    .wrapper .divLocation h2{
+        margin-top:-100px;
+        margin-bottom:50px;
+    }
+
+    .wrapper .content iframe{
+        max-width: 60%;  /* Default max width for larger screens */
+        min-width:600px;
+    }
+
+    .main .container1 .box .descrizione{
+
+        
+        margin-right:40px;
+       max-height:320px;
+       
+        
+    }
+
+    .main .boxLogo .logo1{
+        width:60%;  
+        margin-left:0;
+    }
+    
+    .container1 .boxLogo .titolo{
+    
+        margin-left:0;
+    }
+
+
+     /* Imposta il layout orizzontale per il dropdown toggle e il menu */
+     .nav-item-dropdown {
+        display: flex;              
+        align-items: center;
+        position: relative;
+    }
+
+    /* Nasconde il menu delle lingue per impostazione predefinita */
+    .nav-item-dropdown .dropdown-menu {
+        display: none;               /* Nasconde il menu */
+        position: absolute;           /* Posiziona assolutamente per allinearlo accanto */
+        top: 100%;                    /* Posiziona sotto il toggle */
+        left: 0;
+        flex-direction: row;          /* Mantiene la disposizione orizzontale */
+        background-color: #f5ddb7;    /* Imposta uno sfondo */
+        padding: 10px;                /* Aggiunge padding */
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2); /* Ombra per effetto dropdown */
+    }
+
+    /* Mostra il menu quando il toggle è attivato */
+    .menu-btn:checked ~ .menu .nav-item-dropdown .dropdown-menu {
+        display: flex;               /* Mostra il menu quando attivato */
+    }
+
+    /* Stile dei singoli elementi del dropdown */
+    .nav-item-dropdown .dropdown-menu .dropdown-item {
+        padding: 10px;               /* Padding per gli elementi */
+        margin: 0 5px;               /* Spaziatura tra le lingue */
+    }
+    
+    
+}
+
+@media (min-width:768px) and (max-width:880px){
+
+    .main .container1 .box .descrizione{
+
+        font-size:18px;
+    }
+}
+
+@media (min-width:450px) and (max-width:767px){
+   
+        .container1 {
+            grid-template-columns: 1fr; /* Una sola colonna */
+            width:90%;
+            position: relative;
+            top: 120px;
+            margin:auto;
+        }
+    
+        .box {
+            /*width: 100%; /* Ogni box occupa tutta la larghezza */
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    
+        #carouselExampleIndicators {
+            width:100%;
+            max-width: 100%;  /* Anche il carousel occupa tutto lo spazio disponibile */
+            margin:auto;
+        }
+    
+        .main .boxLogo .logo1{
+            width:50%;  
+            margin:0;
+        }
+
+        .box .descrizione{
+
+            margin-bottom:-150px;
+            text-align: justify;
+        
+        }
+        
+        .container1 .boxLogo .titolo{
+        
+            margin-left:0;
+            font-size:50px;
+        }
+    
+        .header1 ul a:active {
+            background-color: #7a491e;
+            color: #f5ddb7;
+            
+        }
+    
+        .wrapper {
+            
+            
+        }
+       
+        .wrapper .content iframe{
+            width:90%;
+            height:400px;
+            
+            
+        }
+       
+    
+        /* Modifiche specifiche per l'animazione sulle icone del footer */
+        
+    
+        /* Effetto di clic solo su icona e testo */
+        .footer .col a:active {
+            background-color: #7a491e; /* Cambia colore di sfondo su clic */
+            color: #f5ddb7; /* Cambia il colore del testo e delle icone su clic */
+            transform: scale(1.1); /* Ingrandisce leggermente l'icona e il testo */
+        }
+    
+        /* Cambia il colore del testo e dell'icona su clic */
+        .footer .col a:active i,
+        .footer .col a:active p {
+            color: #f5ddb7; /* Cambia colore di testo e icona */
+        }
+
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Rimuove eventuali margini indesiderati */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita lo scroll orizzontale */
+        }
+        
+
+}
+
+
+@media (max-width: 450px){
+
+    .menu-icon{
+
+        margin:8px;
+
+       
+    }
+
+    .header1 .logo{
+        display: flex;
+        align-items: center;    /* Centra verticalmente */
+        justify-content: center; /* Centra orizzontalmente */
+        height: 100px;          /* Altezza navbar, puoi regolarla come preferisci */
+        font-size: 17px;
+        padding:10;
+        margin:0;
+        
+    }
+
+    
+    .container1 {
+        grid-template-columns: 1fr; /* Una sola colonna */
+        
+        position: relative;
+        top: 70px;
+        margin:auto;
+        width:90%;
+    }
+
+    .box {
+        width: 100%; /* Ogni box occupa tutta la larghezza */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #carouselExampleIndicators {
+        max-width: 100%;  /* Anche il carousel occupa tutto lo spazio disponibile */
+        margin-top: 30px;
+       
+    }
+
+    .main .boxLogo .logo1{
+        width:50%;  
+        margin:0;
+    }
+
+    .box .descrizione{
+
+       
+        text-align: justify;
+        
+       
+    }
+    
+    .container1 .boxLogo .titolo{
+    
+        margin-left:0;
+        font-size:40px;
+    }
+
+    .header1 ul a:active {
+        background-color: #7a491e;
+        color: #f5ddb7;
+        
+    }
+
+    
+    .wrapper {
+            
+         margin-top:130px;   
+    }
+   
+    .wrapper .content iframe{
+        
+        height:400px;
+        margin:auto;
+        width:90%;
+    }
+   
+
+    /* Modifiche specifiche per l'animazione sulle icone del footer */
+    
+
+    /* Effetto di clic solo su icona e testo */
+    .footer .col a:active {
+        background-color: #7a491e; /* Cambia colore di sfondo su clic */
+        color: #f5ddb7; /* Cambia il colore del testo e delle icone su clic */
+        transform: scale(1.1); /* Ingrandisce leggermente l'icona e il testo */
+    }
+
+    /* Cambia il colore del testo e dell'icona su clic */
+    .footer .col a:active i,
+    .footer .col a:active p {
+        color: #f5ddb7; /* Cambia colore di testo e icona */
+    }
+
+    
+   
+}
+    
+    
+
+
+
+
+

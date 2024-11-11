@@ -1,0 +1,123 @@
+.containerForm{
+
+    
+    display:flex;
+    justify-content: center;
+    
+}
+
+form{
+
+    position:relative;
+    top:150px;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width:800px;
+    margin-right:20px;
+    margin-left:20px;
+    border:solid 2px black;
+    padding:20px;
+    border-radius: 50px;
+    background-image: url("./img/sfondoForm.png");
+    background-size: cover;
+
+}
+
+.inputForm{
+
+    width:250px;
+    height:50px;
+    text-align: center;
+    border:solid 2px black;
+    
+}
+
+textarea{
+
+    width:270px;
+    height:120px;
+    border-width:3px;
+    border:solid 2px black;
+    text-align: center;
+}
+
+.labelForm{
+
+    font-size: 15px;
+    font-weight: 1000;
+    color:black;
+    background-color:#d3c09b;
+    letter-spacing: 2px;
+    
+}
+
+button{
+    margin-top:50px;
+    width:200px;
+    height:50px;
+    font-size: 20px;
+    border-radius:15px;
+    border:solid 2px black;
+    background-color: #d3c09b;
+    color:black;
+    font-weight:700;
+
+}
+
+/*@media (max-width: 48em) {
+
+    form{
+
+        width:90%;
+    }
+    button{
+
+        width:40%;
+
+    }
+    .inputForm{
+
+        width:60%;
+        height:40px;
+    }
+    textarea{
+
+        width:80%;
+        height:80px;
+    }
+    .labelForm{
+
+        font-size: larger;
+    }
+}
+
+@media (min-width: 48em) and (max-width: 1064px) {
+
+
+    form{
+
+        width:90%;
+    }
+    button{
+
+        width:50%;
+
+    }
+    .inputForm{
+
+        width:50%;
+        height:50px;
+    }
+    textarea{
+
+        width:80%;
+        height:100px;
+    }
+    .labelForm{
+
+        font-size:x-large;
+    }
+   
+}*/

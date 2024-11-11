@@ -1,0 +1,102 @@
+.main .container3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 30px;
+  position: relative;
+  top: 100px;
+}
+
+.main .container3 h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #333;
+  margin-top:70px;
+}
+
+
+.main .box3 {
+  width: 600px; 
+  height: 600px;
+  margin-right:10px;
+  margin-left:10px;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  /*display: flex;*/
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  
+}
+
+.container3 .box3 h3 {
+  padding:15px;
+}
+
+.container3 .box3 p {
+  font-size: 17px;
+  padding-bottom:10px;
+}
+
+.container3 .box3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  box-shadow: none; 
+  
+}
+
+/* Testo all'interno delle card */
+.container3 .box3 .card-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente dietro il testo */
+  
+  color: white;
+  padding: 0; 
+    margin: 0; 
+    box-shadow: none; 
+}
+
+
+.zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.box3:hover .zoom {
+  transform: scale(1.6);
+  cursor: zoom-in;
+}
+
+.box3 {
+  overflow: hidden;
+  position:relative;
+}
+
+
+@media (max-width:680px){
+
+
+  .main .box3 {
+  width:550px;
+  height:480px;
+  margin-left:15px;
+  margin-right:15px;
+  }
+
+ 
+}
