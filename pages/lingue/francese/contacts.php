@@ -12,17 +12,17 @@
 <body>
     
   <header class="header1">
-      <a href="./francais.html" class="logo">SAN ZANOBI MAISON DE VACANCES</a>
+      <a href="./francese.html" class="logo">SAN ZANOBI MAISON DE VACANCES</a>
       <input class="menu-btn" id="menu-btn" type="checkbox">
       <label for="menu-btn" class="menu-icon" onclick="change()">
           <span class="nav-icon"></span>
       </label>
       <ul class="menu">
-        <li><a href="./gallery.html" class="nav-link">Galerie</a></li>
+        <li><a href="./galerie.html" class="nav-link">Galerie</a></li>
         <li><a href="./services.html" class="nav-link">Services</a></li>
-        <li><a href="./location.html" class="nav-link">Position</a></li>
-        <li><a href="./contact.php" class="nav-link">Contact</a></li>
-        <li><a href="./aboutUs.html" class="nav-link">A propous de nous</a></li>
+        <li><a href="./position.html" class="nav-link">Position</a></li>
+        <li><a href="./contacts.php" class="nav-link">Contacts</a></li>
+        <li><a href="./aPropousDeNous" class="nav-link">A propous de nous</a></li>
         
         <!-- Sélecteur de langue -->
         <li class="nav-item-dropdown">
@@ -30,11 +30,11 @@
               Langue
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="../../../index.html"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italy" style="width: 24px;">
+              <li><a class="dropdown-item" href="../../../contatti.html"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italy" style="width: 24px;">
                 Italiano</a></li>
-              <li><a class="dropdown-item" href="./lingue/inglese/contact.html"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
+              <li><a class="dropdown-item" href="./inglese/contact.php"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
                 English</a></li>
-              <li><a class="dropdown-item" href="index-fr.html"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
+              <li><a class="dropdown-item" href="./contacts.php"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
                 Français</a></li>
               <li><a class="dropdown-item" href="index-es.html"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
                 Español</a></li>

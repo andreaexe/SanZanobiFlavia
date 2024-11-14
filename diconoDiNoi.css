@@ -1,14 +1,5 @@
 
 
-#carouselExample{
-
-    width:60%;
-    height:200px;
-    margin-bottom:-100px;
-    
-}
-
-
 .main .containerCard{
 
     top:100px;
@@ -20,6 +11,7 @@
 .main .containerCard .card{
 
     width:100%;
+    
 }
 
 .containerCard .card img{

@@ -82,6 +82,22 @@ function change() {
 
 
 
+    // Selezioniamo il pulsante del dropdown e il menu
+const dropdownToggle = document.getElementById("navbarDropdown");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+
+// Funzione per chiudere il menu del dropdown
+function closeDropdown() {
+    if (dropdownMenu.classList.contains("show")) { // Verifica se il menu è aperto
+        dropdownToggle.click(); // Trigger per chiudere il dropdown
+    }
+}
+
+// Evento di ridimensionamento della finestra
+window.addEventListener("resize", closeDropdown);
+
+
+
 
 
 
