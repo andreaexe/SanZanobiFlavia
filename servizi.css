@@ -27,10 +27,10 @@ hr{
 }
 
 .didascalia{
-    font-size: 14px;          /* Dimensione testo più piccola */
-    color: #666;              /* Colore grigio per non distrarre troppo */
-    margin-top: 3px;          /* Spazio sopra la didascalia */
-    margin-bottom: 10px;      /* Spazio sotto la didascalia */
+    font-size: 14px;         
+    color: #666;              
+    margin-top: 3px;          
+    margin-bottom: 10px;      
     display: block;
     margin-left:34px;
 }

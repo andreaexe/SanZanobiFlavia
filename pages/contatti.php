@@ -150,7 +150,7 @@ if (isset($_SESSION['report'])) {
                 English</a></li>
               <li><a class="dropdown-item" href="./lingue/francese/contacts.php"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
                 Français</a></li>
-              <li><a class="dropdown-item" href="index-es.html"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
+              <li><a class="dropdown-item" href="./lingue/spagnolo/contactos.php"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
                 Español</a></li>
           </ul>
       </li>
@@ -198,48 +198,47 @@ if (isset($_SESSION['report'])) {
     </div>
    
       
-        <!-- Footer -->
-        <footer class="text-center text-lg-start footer" >
-          <div class="container">
-            <div class="row text-center">
-              <!-- Instagram -->
-              <div class="col">
-                <a href="https://www.instagram.com" target="_blank" class="text-decoration-none" >
-                  <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
-                  <p>Instagram</p>
-                </a>
-              </div>
-              <!-- Telefono -->
-              <div class="col">
-                <a href="tel:+1234567890" class="text-decoration-none" >
-                  <i class="bi bi-telephone-fill" style="font-size: 1.5rem;"></i>
-                  <p>+123 456 7890</p>
-                </a>
-              </div>
-              <!-- Airbnb -->
-              <div class="col">
-                <a href="https://www.airbnb.com" target="_blank" class="text-decoration-none" >
-                  <i class="bi bi-house-door-fill" style="font-size: 1.5rem;"></i>
-                  <p>Airbnb</p>
-                </a>
-              </div>
-              <!-- Email -->
-              <div class="col">
-                <a href="mailto:info@example.com" class="text-decoration-none" >
-                  <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
-                  <p>info@example.com</p>
-                </a>
-              </div>
-              <!-- WhatsApp -->
-              <div class="col ">
-                <a href="https://wa.me/1234567890" target="_blank" class="text-decoration-none" >
-                  <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
-                  <p>WhatsApp</p>
-                </a>
-              </div>
-            </div>
+    <footer class="text-center text-lg-start footer" >
+      <div class="container">
+        <div class="row text-center">
+          <!-- Instagram -->
+          <div class="col">
+            <a href="https://www.instagram.com/sanzanobi_holiday/" target="_blank" class="text-decoration-none" >
+              <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+              <p>Instagram</p>
+            </a>
           </div>
-        </footer>
+          <!-- Telefono -->
+          <div class="col">
+            <a href="tel:+393280576886" class="text-decoration-none" >
+              <i class="bi bi-telephone-fill" style="font-size: 1.5rem;"></i>
+              <p>+393280576886</p>
+            </a>
+          </div>
+          <!-- Airbnb -->
+          <div class="col">
+            <a href="https://www.airbnb.it/rooms/12360247/amenities?source_impression_id=p3_1728847931_P35IxTYupJ1CoKu9&translate_ugc=false" target="_blank" class="text-decoration-none" >
+              <i class="bi bi-house-door-fill" style="font-size: 1.5rem;"></i>
+              <p>Airbnb</p>
+            </a>
+          </div>
+          <!-- Email -->
+          <div class="col">
+            <a href="mailto:rossanapalumbo2@gmail.com" class="text-decoration-none" >
+              <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
+              <p>Email</p>
+            </a>
+          </div>
+          <!-- WhatsApp -->
+          <div class="col ">
+            <a href="https://wa.me/+393280576886" target="_blank" class="text-decoration-none" >
+              <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
+              <p>WhatsApp</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
       </div>
          
     

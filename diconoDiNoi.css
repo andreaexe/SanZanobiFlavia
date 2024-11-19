@@ -1,82 +1,78 @@
 
 
-.main .containerCard{
 
-    top:100px;
+.main {
+    padding: 5px;
     position:relative;
-    display: flex;
-    justify-content:center;
-}
-
-.main .containerCard .card{
-
-    width:100%;
+    top:100px;
     
 }
 
-.containerCard .card img{
+.vertical-line {
+    width: 1px;             
+    height: 200px;          
+    background-color: #ccc; 
+    margin: 0 10px;         
+}
 
-    object-fit: contain;
-    width: 100%;
+.riga{
+
+   
+    display:flex;
+   justify-content: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.colonna{
+
+    padding:20px;
+}
+
+strong{
+
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.recensioniGenerale{
+
+    font-size:35px;
+    font-weight: 500;
+}
+
+i{
+
+    font-size:30px;
+}
+
+.card{
+
+    width:100%;
+}
+
+/* Adattamento per schermi piccoli */
+@media (max-width: 1400px) {
+    .riga {
+        flex-direction: column; 
+        
+    }
+
+    .vertical-line {
+       width:100%;
+       height:1px;
+       background-color:ccc;
+
+    }
+
+    .colonna {
+        padding: 15px; 
+        width: 100%; 
+    }
 }
 
 
+.containerCard{
 
-
-
-.star {
-    font-size: 24px;
-    color: gold;
+    margin:5px;
 }
-
-.rating-display {
-    font-size: 24px;
-    margin-left: 10px;
-}
-
-.reviews-count {
-    font-size: 16px;
-    margin-left: 5px;
-    color: grey;
-}
-
-.rating-bar .rating-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.rating-bar .bar {
-    width: 100px;
-    height: 10px;
-    background-color: #e0e0e0;
-    margin-left: 10px;
-    position: relative;
-}
-
-.rating-bar .filled {
-    height: 100%;
-    background-color: black;
-}
-
-.rating {
-    font-size: 24px;
-    margin: 5px 0;
-}
-
-i {
-    font-size: 24px;
-    margin-top: 5px;
-    display: block;
-}
-
-.text-center {
-    text-align: center;
-}
-
-  
-
-
-
-
-

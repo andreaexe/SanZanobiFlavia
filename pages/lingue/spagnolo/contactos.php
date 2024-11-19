@@ -67,11 +67,11 @@ if (isset($_SESSION['report'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - San Zanobi Holiday Home</title>
+    <title>Contáctanos - Casa de Vacaciones San Zanobi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../../contatti.css">
@@ -80,38 +80,38 @@ if (isset($_SESSION['report'])) {
 <body>
     
   <header class="header1">
-      <a href="./inglese.html" class="logo">SAN ZANOBI HOLIDAY HOME</a>
+      <a href="./spagnolo.html" class="logo">CASA DE SAN ZANOBI</a>
       <input class="menu-btn" id="menu-btn" type="checkbox">
       <label for="menu-btn" class="menu-icon" onclick="change()">
           <span class="nav-icon"></span>
       </label>
       <ul class="menu">
-        <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="./services.html" class="nav-link">Services</a></li>
-        <li><a href="./location.html" class="nav-link">Location</a></li>
-        <li><a href="./contact.php" class="nav-link">Contact</a></li>
-        <li><a href="./aboutUs.html" class="nav-link">Testimonials</a></li>
+        <li><a href="./galeria.html" class="nav-link">Galería</a></li>
+        <li><a href="./servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="./dondeEstamos.html" class="nav-link">Ubicación</a></li>
+        <li><a href="./contactos.php" class="nav-link">Contactos</a></li>
+        <li><a href="./dicenDeNosotros.html" class="nav-link">Testimonios</a></li>
         
-        <!-- Language switcher -->
+        <!-- Selector de idioma -->
         <li class="nav-item-dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Language
+              Idioma
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="../../contatti.php"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italy" style="width: 24px;">
                 Italiano</a></li>
-              <li><a class="dropdown-item" href="contact.php"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
+              <li><a class="dropdown-item" href="../inglese/contact.php"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
                 English</a></li>
               <li><a class="dropdown-item" href="../francese/contacts.php"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
                 Français</a></li>
-              <li><a class="dropdown-item" href="../spagnolo/contactos.php"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
+              <li><a class="dropdown-item" href="contactos.php"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
                 Español</a></li>
           </ul>
         </li>
       </ul>
   </header>
-
-     <div class="containerForm">
+   
+  <div class="containerForm">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
         <label class="labelForm"for="nome">Nome:</label><br>
         <input class="inputForm" type="text" id="nome" name="nome" required><br>
@@ -146,8 +146,7 @@ if (isset($_SESSION['report'])) {
       }
       ?>
     </div>
-
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="text-center text-lg-start footer" >
       <div class="container">
         <div class="row text-center">
@@ -158,7 +157,7 @@ if (isset($_SESSION['report'])) {
               <p>Instagram</p>
             </a>
           </div>
-          <!-- Telefono -->
+          <!-- Teléfono -->
           <div class="col">
             <a href="tel:+393280576886" class="text-decoration-none" >
               <i class="bi bi-telephone-fill" style="font-size: 1.5rem;"></i>
@@ -172,11 +171,11 @@ if (isset($_SESSION['report'])) {
               <p>Airbnb</p>
             </a>
           </div>
-          <!-- Email -->
+          <!-- Correo electrónico -->
           <div class="col">
             <a href="mailto:rossanapalumbo2@gmail.com" class="text-decoration-none" >
               <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
-              <p>Email</p>
+              <p>Correo electrónico</p>
             </a>
           </div>
           <!-- WhatsApp -->

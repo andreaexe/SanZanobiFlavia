@@ -557,15 +557,6 @@ html, body {
     
 
 
-/* Stile per il dropdown delle lingue a tutte le risoluzioni */
-/*.dropdown-menu .dropdown-item:active,
-.dropdown-menu .dropdown-item:focus {
-    background-color: #7a491e !important; /* marrone */
-   /* color: #f5ddb7 !important; /* giallino */
-/*}*/
-
-
-
 
 .dropdown-menu .dropdown-item:focus,
 .dropdown-menu .dropdown-item:active {
