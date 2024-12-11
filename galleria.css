@@ -4,19 +4,15 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
   gap: 30px;
-  position: relative;
-  top: 100px;
 }
 
 .main .container3 h2 {
   width: 100%;
   text-align: center;
   font-size: 40px;
-  margin-bottom: 30px;
   color: #333;
-  margin-top:70px;
+  
 }
 
 
@@ -86,6 +82,11 @@
   position:relative;
 }
 
+.main{
+  top: 100px;
+  position:relative;
+  margin-bottom:300px;
+}
 
 @media (max-width:680px){
 
@@ -98,4 +99,12 @@
   }
 
  
+}
+
+/* Linea di divisione tra le sezioni */
+.container3:not(:last-child) {
+  border-bottom: 2px solid grey; /* Colore e spessore della linea */
+  margin-bottom: 100px; /* Spazio tra le sezioni */
+  padding-bottom: 100px; /* Spazio interno sotto la linea */
+
 }

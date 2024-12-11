@@ -1,15 +1,15 @@
 .containerForm{
-
-    
+    position:relative;
+    top:130px;
     display:flex;
     justify-content: center;
+    margin-bottom:100px;
     
 }
 
 form{
 
     position:relative;
-    top:150px;
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;

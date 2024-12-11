@@ -37,21 +37,25 @@ function change() {
         console.log('Menu chiuso');
         if (window.innerWidth <= 1064) {
             menu.style.maxHeight = "0"; // Nascondi il menu
-            carousel.style.top = "0"; // Ripristina la posizione del carosello per schermi piccoli*/
 
-            carouselNext.style.display="block";
+
+
+           /* carousel.style.top = "0"; 
+
+           /* carouselNext.style.display="block";
             carouselPrevious.style.display="block";
-            carouselIndicator.style.display="flex";
+            carouselIndicator.style.display="flex";*/
         }
        
     } else {
         console.log('Menu aperto');
         if (window.innerWidth <= 1064) {
             menu.style.maxHeight = "500px"; // Mostra il menu
+            
            
-            carouselNext.style.display="none";
+            /*carouselNext.style.display="none";
             carouselPrevious.style.display="none";
-            carouselIndicator.style.display="none";
+            carouselIndicator.style.display="none";*/
             /*carousel.style.top = "150px";*/ // Aggiusta la posizione del carosello per schermi piccoli*/
         }
     }
@@ -59,7 +63,7 @@ function change() {
 
 
     // Gestire lo zoom dinamico in base alla posizione del cursore
-    const zoomImages = document.querySelectorAll('.box3 img');
+    /*const zoomImages = document.querySelectorAll('.box3 img');
 
     zoomImages.forEach(img => {
         img.addEventListener('mousemove', function(e) {
@@ -79,7 +83,7 @@ function change() {
             img.style.transformOrigin = 'center';
         });
     });
-
+*/
 
 
     // Selezioniamo il pulsante del dropdown e il menu
@@ -102,3 +106,9 @@ window.addEventListener("resize", closeDropdown);
 
 
         
+AOS.init({
+    offset: 150, // Distanza dall'alto della viewport prima dell'attivazione
+    duration: 800, // Durata dell'animazione
+    easing: 'ease-in-out',
+    once: true, // L'animazione avviene solo una volta
+});
