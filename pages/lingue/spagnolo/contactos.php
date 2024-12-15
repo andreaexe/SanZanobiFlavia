@@ -173,7 +173,7 @@ if (isset($_SESSION['report'])) {
           </div>
           <!-- Correo electrónico -->
           <div class="col">
-            <a href="mailto:rossanapalumbo2@gmail.com" class="text-decoration-none" >
+            <a href="mailto:palumborossana2@gmail.com" class="text-decoration-none" >
               <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
               <p>Correo electrónico</p>
             </a>
