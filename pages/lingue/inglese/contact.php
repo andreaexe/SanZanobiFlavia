@@ -1,153 +1,169 @@
 <?php
-session_start(); // Start the session
+session_start();
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+$messaggioReport = ""; // Inizializza il messaggio
+$flagReport = false;    // Inizializza il flag
 
-require '../../PHPMailer-master/src/Exception.php';
-require '../../PHPMailer-master/src/PHPMailer.php';
-require '../../PHPMailer-master/src/SMTP.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recupera i dati dal form
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $telefono = htmlspecialchars(trim($_POST['telefono']));
+    $ospiti = $_POST['ospiti'];
+    $date = htmlspecialchars(trim($_POST['date']));
+    $messaggio = htmlspecialchars(trim($_POST['messaggio']));
 
-$report = null; // Initialize $report as empty
+    // Destinatario
+    $to = 'andrea.sestini2005@gmail.com';
 
-// Execute code only when the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $name = $_POST["name"] ?? '';
-    $email = $_POST["email"] ?? '';
-    $phone = $_POST["phone"] ?? '';
-    $guests = $_POST["guests"] ?? '';
-    $dates = $_POST["dates"] ?? '';
-    $message = $_POST["message"] ?? '';
+    // Oggetto dell'email
+    $subject = 'Contact Request San Zanobi Holiday Home';
 
-    // Create a new PHPMailer instance
-    $mail = new PHPMailer(true);
+    // Corpo del messaggio
+    $message = "You have received a new contact request:\r\n\r\n";
+    $message .= "Name: $nome\r\n";
+    $message .= "Email: $email\r\n";
+    $message .= "Phone: $telefono\r\n";
+    $message .= "Number of Guests: $ospiti\r\n";
+    $message .= "Stay Dates: $date\r\n";
+    $message .= "Message:\r\n$messaggio\r\n";
 
-    try {
-        // Gmail SMTP server configuration
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'andrea.sestini2005@gmail.com'; // Change with your Gmail address
-        $mail->Password = 'pnss zswv buea xvdf'; // Use your Google app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+    // Intestazioni dell'email
+    $headers = "From: San Zanobi Holiday Home <sestini5c@altervista.org>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
 
-        // Sender and recipient
-        $mail->setFrom('noreply@yourdomain.com', 'San Zanobi Holiday Home');
-        $mail->addAddress('andrea.sestini2005@gmail.com'); // Destination email
-
-        // Email content
-        $mail->isHTML(true);
-        $mail->Subject = "Contact request for San Zanobi Holiday Home from $name";
-        $mail->Body = "
-            <h2>New contact request</h2>
-            <p><strong>Name:</strong> $name</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Phone:</strong> $phone</p>
-            <p><strong>Number of guests:</strong> $guests</p>
-            <p><strong>Stay dates:</strong> $dates</p>
-            <p><strong>Message:</strong> $message</p>
-        ";
-
-        // Send the email
-        $mail->send();
-        $_SESSION['report'] = "Message sent successfully. We will get back to you soon!";
-    } catch (Exception $e) {
-        $_SESSION['report'] = "Error sending the message. Mailer Error: {$mail->ErrorInfo}";
+    // Invia l'email
+    if (mail($to, $subject, $message, $headers)) {
+        $_SESSION['messaggioReport'] = "Message sent successfully!";
+        $_SESSION['flagReport'] = true; // Salva il flag nella sessione
+    } else {
+        $_SESSION['messaggioReport'] = "Message sending failed.";
+        $_SESSION['flagReport'] = false; // Salva il flag nella sessione
     }
+
+    // Reindirizza alla stessa pagina con l'ancora #report
+    header("Location: " . $_SERVER['PHP_SELF'] . "#report");
+    exit();
 }
 
-if (isset($_SESSION['report'])) {
-  $report = $_SESSION['report'];
-  unset($_SESSION['report']);
-} else {
-  $report = '';
-}
+// Recupera il messaggio e il flag dalla sessione
+$messaggioReport = isset($_SESSION['messaggioReport']) ? $_SESSION['messaggioReport'] : '';
+$flagReport = isset($_SESSION['flagReport']) ? $_SESSION['flagReport'] : false;
+
+// Rimuove i dati dalla sessione
+unset($_SESSION['messaggioReport']);
+unset($_SESSION['flagReport']);
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - San Zanobi Holiday Home</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../../contatti.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@414&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     
+    
+    
   <header class="header1">
+      
       <a href="./inglese.html" class="logo">SAN ZANOBI HOLIDAY HOME</a>
       <input class="menu-btn" id="menu-btn" type="checkbox">
-      <label for="menu-btn" class="menu-icon" onclick="change()">
+      <label for="menu-btn" class="menu-icon"onclick=change()>
+  
           <span class="nav-icon"></span>
       </label>
       <ul class="menu">
         <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="./services.html" class="nav-link">Services</a></li>
         <li><a href="./location.html" class="nav-link">Location</a></li>
-        <li><a href="./contact.php" class="nav-link">Contact</a></li>
+        <li><a href="./contact.php" class="nav-link">Contacts</a></li>
         <li><a href="./aboutUs.html" class="nav-link">Testimonials</a></li>
-        
-        <!-- Language switcher -->
+      
+        <!-- Boutons pour changer de langue -->
         <li class="nav-item-dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Language
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="../../contatti.php"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italy" style="width: 24px;">
+              <li><a class="dropdown-item" href="../../contatti.php"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italia" style="width: 24px;">
                 Italiano</a></li>
-              <li><a class="dropdown-item" href="contact.php"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
+              <li><a class="dropdown-item" href="../inglese/contact.php"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK" style="width: 24px;">
                 English</a></li>
               <li><a class="dropdown-item" href="../francese/contacts.php"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="FR" style="width: 24px;">
                 Français</a></li>
               <li><a class="dropdown-item" href="../spagnolo/contactos.php"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="ES" style="width: 24px;">
                 Español</a></li>
           </ul>
-        </li>
+      </li>
+      
+      
       </ul>
+      
+    
   </header>
-
-     <div class="containerForm">
+   
+    <div class="containerForm">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-        <label class="labelForm"for="nome">Nome:</label><br>
-        <input class="inputForm" type="text" id="nome" name="nome" required><br>
+         <!--<label class="labelForm lato-bold"for="nome">Nome:</label><br>-->
+        <input class="inputForm" type="text" id="nome" name="nome" placeholder="Name:"required><br>
     
-        <label class="labelForm"for="email">Email:</label><br>
-        <input class="inputForm" type="email" id="email" name="email" required><br>
+         <!--<label class="labelForm lato-bold"for="email">Email:</label><br>-->
+        <input class="inputForm" type="email" id="email" name="email" placeholder="Email:"required><br>
     
-        <label class="labelForm"for="telefono">Telefono:</label><br>
-        <input class="inputForm" type="text" id="telefono" name="telefono" required><br>
+         <!--<label class="labelForm lato-bold"for="telefono">Telefono:</label><br>-->
+        <input class="inputForm" type="text" id="telefono" name="telefono"placeholder="Phone:" required><br>
     
-        <label class="labelForm"for="ospiti">Numero di Ospiti:</label><br>
-        <input class="inputForm" type="number" id="ospiti" name="ospiti" required><br>
+        <!--<label class="labelForm lato-bold"for="ospiti">Numero di Ospiti:</label><br>-->
+        <input class="inputForm" type="number" id="ospiti" placeholder="Number of guests:" name="ospiti" required><br>
     
-        <label class="labelForm"for="date">Date di Soggiorno:</label><br>
-        <input class="inputForm" type="text" id="date" name="date" placeholder="es. dal 10 al 15 giugno" required><br>
+         <!--<label class="labelForm lato-bold"for="date">Date di Soggiorno:</label><br>-->
+        <input class="inputForm" type="text" id="date" name="date" placeholder="Dates: e.g. from June 10 to 15:" required><br>
     
-        <label class="labelForm"for="messaggio">Messaggio:</label><br>
-        <textarea id="messaggio" name="messaggio" required></textarea><br>
+         <!--<label class="labelForm lato-bold"for="messaggio">Messaggio:</label><br>-->
+        <textarea id="messaggio" name="messaggio" placeholder="Message:" required></textarea><br>
     
-        <button type="submit">Invia Richiesta</button>
+        <button type="submit">Send Request</button>
     </form>
     
     </div>
 
   
-    <div style="height: 20vh;">
-       
-          <?php 
-      if ($report) {?>
-           <div id='report' style='border:2px solid black;width:40%;margin:auto;padding:15px;color: black;background-color:#d3c09b; border-radius:30px; font-weight: bold;font-size:18px; text-align:center;margin-top:300px;'><?php echo $report ?></div>;
-         <?php $report = null;
-      }
-      ?>
-    </div>
+    <div style="height: 20vh; margin-top: 200px;">
+    <?php if (!empty($messaggioReport)): ?>
+        <div id="report" style="
+            border: 2px solid <?php echo $flagReport ? '#4caf50' : 'orange'; ?>;
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            color: <?php echo $flagReport ? '#155724' : 'red'; ?>;
+            background-color: <?php echo $flagReport ? '#d4edda' : '#fed8b1'; ?>;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <?php echo $messaggioReport; ?>
+        </div>
+    <?php endif; ?>
+</div>
 
-    <!-- Footer -->
+
+
+   
+      
     <footer class="text-center text-lg-start footer" >
       <div class="container">
         <div class="row text-center">
@@ -189,8 +205,8 @@ if (isset($_SESSION['report'])) {
         </div>
       </div>
     </footer>
-
+    
     <script src="../../../script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

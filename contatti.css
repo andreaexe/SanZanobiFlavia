@@ -4,6 +4,7 @@
     display:flex;
     justify-content: center;
     margin-bottom:100px;
+    height:600px;
     
 }
 
@@ -14,7 +15,7 @@ form{
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    width:800px;
+    width:500px;
     margin-right:20px;
     margin-left:20px;
     border:solid 2px black;
@@ -22,47 +23,48 @@ form{
     border-radius: 50px;
     background-image: url("./img/sfondoForm.png");
     background-size: cover;
-
 }
 
 .inputForm{
 
     width:250px;
-    height:50px;
     text-align: center;
-    border:solid 2px black;
-    
+    border:solid 1px black;
+    margin:10px 0;
 }
 
 textarea{
 
-    width:270px;
-    height:120px;
+    width:320px;
+    height:80px;
     border-width:3px;
-    border:solid 2px black;
+    border:solid 1px black;
     text-align: center;
 }
 
 .labelForm{
 
-    font-size: 15px;
-    font-weight: 1000;
+    font-size: 20px;
     color:black;
-    background-color:#d3c09b;
-    letter-spacing: 2px;
+    margin:-10px;
     
 }
 
 button{
-    margin-top:50px;
+    
+    margin-top:35px;
     width:200px;
-    height:70px;
+    height:50px;
     font-size: 20px;
     border-radius:15px;
-    border:solid 2px black;
+    border:solid 1px black;
     background-color: #d3c09b;
     color:black;
     font-weight:700;
-
 }
 
+.lato-bold {
+    font-family: "Lato", serif;
+    font-weight: 700;
+    font-style: normal;
+  }

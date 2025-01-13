@@ -1,110 +1,60 @@
 <?php
+session_start();
 
-/*$nome=$_POST["nome"];
-$email=$_POST["email"];
-$messaggio=$_POST["messaggio"];
+$messaggioReport = ""; // Inizializza il messaggio
+$flagReport = false;    // Inizializza il flag
 
-if(empty($nome) || empty($email) || empty($messaggio) ){
-
-    echo "compila tutti i campi" ; 
-
-}
-
-else{
-
-    $to="andrea.sestini2005@gmail.com";
-    $subject="Nuovo messaggio da $nome";    
-    $body="Nome: $nome \nemail: $email \nmessaggio:\n$messaggio";
-    $headers="From:noreply@tuodominio.com";
-
-    if(mail($to,$subject,$body,$headers)){
-
-        echo "messaggio inviato con successo";
-    }
-    else{
-        echo "errore nell' invio del messaggio";
-    }
-}*/
-
-
-
-
-/*error_reporting(E_ERROR | E_PARSE);*/
-
-session_start(); // Avvia la sessione
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/SMTP.php';
-
-$report = null; // Inizializza la variabile $report come vuota
-
-// Esegui il codice solo quando il form viene inviato
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recupera i dati dal form
-    $nome = $_POST["nome"] ?? '';
-    $email = $_POST["email"] ?? '';
-    $telefono = $_POST["telefono"] ?? '';
-    $ospiti = $_POST["ospiti"] ?? '';
-    $date = $_POST["date"] ?? '';
-    $messaggio = $_POST["messaggio"] ?? '';
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $telefono = htmlspecialchars(trim($_POST['telefono']));
+    $ospiti = $_POST['ospiti'];
+    $date = htmlspecialchars(trim($_POST['date']));
+    $messaggio = htmlspecialchars(trim($_POST['messaggio']));
 
-    // Crea un'istanza di PHPMailer
-    $mail = new PHPMailer(true);
+    // Destinatario
+    $to = 'andrea.sestini2005@gmail.com';
 
-    try {
-        // Configura il server SMTP di Gmail
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'andrea.sestini2005@gmail.com'; // Cambia con il tuo indirizzo Gmail
-        $mail->Password = 'pnss zswv buea xvdf';    // Usa la password per app di Google
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+    // Oggetto dell'email
+    $subject = 'Richiesta di Contatto San Zanobi Holiday Home';
 
-        // Mittente e destinatario
-        $mail->setFrom('noreply@tuodominio.com', 'San Zanobi Holiday Home');
-        $mail->addAddress('andrea.sestini2005@gmail.com'); // Email di destinazione
+    // Corpo del messaggio
+    $message = "Hai ricevuto una nuova richiesta di contatto:\r\n\r\n";
+    $message .= "Nome: $nome\r\n";
+    $message .= "Email: $email\r\n";
+    $message .= "Telefono: $telefono\r\n";
+    $message .= "Numero di Ospiti: $ospiti\r\n";
+    $message .= "Date di Soggiorno: $date\r\n";
+    $message .= "Messaggio:\r\n$messaggio\r\n";
 
-        // Contenuto dell'email
-        $mail->isHTML(true);
-        $mail->Subject = "Richiesta di contatto per San Zanobi Holiday Home da $nome";
-        $mail->Body = "
-            <h2>Nuova richiesta di contatto</h2>
-            <p><strong>Nome:</strong> $nome</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Telefono:</strong> $telefono</p>
-            <p><strong>Numero di ospiti:</strong> $ospiti</p>
-            <p><strong>Date di soggiorno:</strong> $date</p>
-            <p><strong>Messaggio:</strong> $messaggio</p>
-        ";
+    // Intestazioni dell'email
+    $headers = "From: San Zanobi Holiday Home <sestini5c@altervista.org>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
 
-        // Invia l'email
-        $mail->send();
-        $_SESSION['report'] = "Messaggio inviato con successo. Ti risponderemo al più presto!";
-    } catch (Exception $e) {
-      $_SESSION['report'] = "Errore nell'invio del messaggio. Mailer Error: {$mail->ErrorInfo}";
+    // Invia l'email
+    if (mail($to, $subject, $message, $headers)) {
+        $_SESSION['messaggioReport'] = "Messaggio inviato con successo!";
+        $_SESSION['flagReport'] = true; // Salva il flag nella sessione
+    } else {
+        $_SESSION['messaggioReport'] = "Invio del messaggio fallito.";
+        $_SESSION['flagReport'] = false; // Salva il flag nella sessione
     }
+
+    // Reindirizza alla stessa pagina con l'ancora #report
+    header("Location: " . $_SERVER['PHP_SELF'] . "#report");
+    exit();
 }
 
-if (isset($_SESSION['report'])) {
-  // Se esiste, assegna quel messaggio a $report
-  $report = $_SESSION['report'];
-  // Rimuovi il messaggio dalla sessione dopo averlo mostrato
-  unset($_SESSION['report']);
-} else {
-  // Se non c'è alcun messaggio, imposta $report come una stringa vuota
-  $report = '';
-}
+// Recupera il messaggio e il flag dalla sessione
+$messaggioReport = isset($_SESSION['messaggioReport']) ? $_SESSION['messaggioReport'] : '';
+$flagReport = isset($_SESSION['flagReport']) ? $_SESSION['flagReport'] : false;
 
+// Rimuove i dati dalla sessione
+unset($_SESSION['messaggioReport']);
+unset($_SESSION['flagReport']);
 ?>
-
-
-
-
 
 
 
@@ -118,6 +68,10 @@ if (isset($_SESSION['report'])) {
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../contatti.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@414&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -163,23 +117,23 @@ if (isset($_SESSION['report'])) {
    
     <div class="containerForm">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-        <label class="labelForm"for="nome">Nome:</label><br>
-        <input class="inputForm" type="text" id="nome" name="nome" required><br>
+         <!--<label class="labelForm lato-bold"for="nome">Nome:</label><br>-->
+        <input class="inputForm" type="text" id="nome" name="nome" placeholder="Nome:"required><br>
     
-        <label class="labelForm"for="email">Email:</label><br>
-        <input class="inputForm" type="email" id="email" name="email" required><br>
+         <!--<label class="labelForm lato-bold"for="email">Email:</label><br>-->
+        <input class="inputForm" type="email" id="email" name="email" placeholder="Email:"required><br>
     
-        <label class="labelForm"for="telefono">Telefono:</label><br>
-        <input class="inputForm" type="text" id="telefono" name="telefono" required><br>
+         <!--<label class="labelForm lato-bold"for="telefono">Telefono:</label><br>-->
+        <input class="inputForm" type="text" id="telefono" name="telefono"placeholder="Telefono:" required><br>
     
-        <label class="labelForm"for="ospiti">Numero di Ospiti:</label><br>
-        <input class="inputForm" type="number" id="ospiti" name="ospiti" required><br>
+        <!--<label class="labelForm lato-bold"for="ospiti">Numero di Ospiti:</label><br>-->
+        <input class="inputForm" type="number" id="ospiti" placeholder="Numero di ospiti:" name="ospiti" required><br>
     
-        <label class="labelForm"for="date">Date di Soggiorno:</label><br>
-        <input class="inputForm" type="text" id="date" name="date" placeholder="es. dal 10 al 15 giugno" required><br>
+         <!--<label class="labelForm lato-bold"for="date">Date di Soggiorno:</label><br>-->
+        <input class="inputForm" type="text" id="date" name="date" placeholder="Data: es. dal 10 al 15 giugno:" required><br>
     
-        <label class="labelForm"for="messaggio">Messaggio:</label><br>
-        <textarea id="messaggio" name="messaggio" required></textarea><br>
+         <!--<label class="labelForm lato-bold"for="messaggio">Messaggio:</label><br>-->
+        <textarea id="messaggio" name="messaggio" placeholder="Messaggio:" required></textarea><br>
     
         <button type="submit">Invia Richiesta</button>
     </form>
@@ -187,15 +141,27 @@ if (isset($_SESSION['report'])) {
     </div>
 
   
-    <div style="height: 20vh;">
-       
-          <?php 
-      if ($report) {?>
-           <div id='report' style='border:2px solid black;width:40%;margin:auto;padding:15px;color: black;background-color:#d3c09b; border-radius:30px; font-weight: bold;font-size:18px; text-align:center;margin-top:300px;'><?php echo $report ?></div>;
-         <?php $report = null;
-      }
-      ?>
-    </div>
+    <div style="height: 20vh; margin-top: 200px;">
+    <?php if (!empty($messaggioReport)): ?>
+        <div id="report" style="
+            border: 2px solid <?php echo $flagReport ? '#4caf50' : 'orange'; ?>;
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            color: <?php echo $flagReport ? '#155724' : 'red'; ?>;
+            background-color: <?php echo $flagReport ? '#d4edda' : '#fed8b1'; ?>;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <?php echo $messaggioReport; ?>
+        </div>
+    <?php endif; ?>
+</div>
+
+
+
    
       
     <footer class="text-center text-lg-start footer" >
@@ -239,11 +205,7 @@ if (isset($_SESSION['report'])) {
         </div>
       </div>
     </footer>
-      </div>
-         
     
-      
-        
     <script src="../script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
