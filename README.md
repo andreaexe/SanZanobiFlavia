@@ -18,7 +18,7 @@ L'obiettivo era **esercitarmi e realizzare qualcosa di tangibile**, senza l'aiut
 ## 🔗 Link utili
 
 - 🌐 **Versione online (Altervista):** [https://sanzanobiholidayhome2.altervista.org/SanZanobiFlavia/index.html](https://sanzanobiholidayhome2.altervista.org/SanZanobiFlavia/index.html)
-- 💻 **Repository GitHub:** [github.com/andreaexe/sanzanobi-holiday-home](https://github.com/tuo-username/sanzanobi-holiday-home)
+- 💻 **Repository GitHub:** [https://andreaexe.github.io/SanZanobiFlavia/index.html](https://andreaexe.github.io/SanZanobiFlavia/index.html)
 
 ---
 
