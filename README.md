@@ -46,4 +46,4 @@ L'obiettivo era **esercitarmi e realizzare qualcosa di tangibile**, senza l'aiut
 
 ## ✍️ Autore
 
-**[Il tuo nome]** – 2025
+**Andreaexe** – 2025
